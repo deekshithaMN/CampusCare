@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'campuscare_core.wsgi.application'
 
 # Database configuration
 # Defaults to SQLite if PostgreSQL credentials are not provided or database is unreachable
-DB_NAME = os.getenv('DATABASE_NAME')
-DB_USER = os.getenv('DATABASE_USER')
-DB_PASS = os.getenv('DATABASE_PASSWORD')
-DB_HOST = os.getenv('DATABASE_HOST', 'localhost')
+DB_NAME = os.getenv('campuscare_qq1l')
+DB_USER = os.getenv('campuscare_user')
+DB_PASS = os.getenv('r6EAaqt5HZjcdCg1xkJzBKDteeYRCmuV')
+DB_HOST = os.getenv('dpg-dbm4g0142hec73dkskr0-a')
 DB_PORT = os.getenv('DATABASE_PORT', '5432')
 
 if DB_NAME and DB_USER and DB_PASS:
