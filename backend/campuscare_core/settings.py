@@ -82,14 +82,15 @@ DB_PASS = os.getenv('r6EAaqt5HZjcdCg1xkJzBKDteeYRCmuV')
 DB_HOST = os.getenv('dpg-dbm4g0142hec73dkskr0-a')
 DB_PORT = os.getenv('DATABASE_PORT', '5432')
 
-if DB_NAME and DB_USER and DB_PASS:
+DATABASE_URL = os.getenv("postgresql://campuscare_user:r6EAaqt5HZjcdCg1xkJzBKDteeYRCmuV@dpg-dbm4g0142hec73dkskr0-a.singapore-postgres.render.com/campuscare_qq1l")
+if DATABASE_URL:
     DATABASES = {
         "default": dj_database_url.config(
-            default="sqlite:///" + str(BASE_DIR / "db.sqlite3"),
+            default=DATABASE_URL,
             conn_max_age=600,
-            ssl_require=not DEBUG,
-    )
-}
+            ssl_require=True,
+        )
+    }
 else:
     # Beginner-friendly hackathon fallback: SQLite for quick local trials
     DATABASES = {
