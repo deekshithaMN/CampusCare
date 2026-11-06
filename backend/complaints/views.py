@@ -5,6 +5,7 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 
 from .models import Complaint, ComplaintSupport, StatusLog, ComplaintStatus
 from .serializers import (
@@ -23,6 +24,7 @@ class ComplaintViewSet(viewsets.ModelViewSet):
     """
     queryset = Complaint.objects.all().select_related('student', 'assigned_staff').prefetch_related('supports', 'status_logs')
     permission_classes = [permissions.IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
 
     def get_serializer_class(self):
         if self.action == 'create':
